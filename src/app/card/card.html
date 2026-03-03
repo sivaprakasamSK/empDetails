@@ -1,0 +1,45 @@
+<div class="group bg-white border border-slate-700/50 rounded-[2rem] shadow-xl text-center p-6 transition-all duration-300 ease-out
+          hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(10,25,47,0.2)]
+       cursor-pointer h-full flex flex-col justify-between" (click)="openDetails()">
+  <div>
+
+    <div class="flex gap-x-12">
+      <div class="flex justify-center mb-4">
+        <div
+          class="p-4 rounded-2xl bg-blue-100  border-slate-700 group-hover:border-sky-500/30 transition-all duration-300 shadow-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#0F52BA" class="bi bi-buildings"
+            viewBox="0 0 16 16">
+            <path
+              d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022M6 8.694 1 10.36V15h5zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5z" />
+            <path
+              d="M2 11h1v1H2zm2 0h1v1H4zm-2 2h1v1H2zm2 0h1v1H4zm4-4h1v1H8zm2 0h1v1h-1zm-2 2h1v1H8zm2 0h1v1h-1zm2-2h1v1h-1zm0 2h1v1h-1zM8 7h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zM8 5h1v1H8zm2 0h1v1h-1zm2 0h1v1h-1zm0-2h1v1h-1z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex justify-center items-center">
+        <h3 class="text-xl font-bold text-black mb-2 leading-tight">
+          {{ branch.branchName }}
+        </h3>
+      </div>
+    </div>
+
+    <div class="flex justify-start gap-x-2">
+      <p class="text-[15px] text-slate-400 tracking-widest  uppercase opacity-80">
+        ID: <span>{{ branch.branchId }}</span>
+      </p>
+
+      <p class="text-[15px] text-slate-400 tracking-widest opacity-80 uppercase">ID: <span>{{ branch.branchId }}</span></p>
+
+      <p class="text-[15px] text-slate-400 tracking-widest opacity-80">ID: <span>{{ branch.branchId }}</span></p>
+    </div>
+
+    <div class="mt-4 max-w-[1200px]">
+      <button
+        class=" min-w-[250px] px-6 py-2 bg-blue-500 group-hover:bg-blue-400 text-white rounded-xl disabled:opacity-30 transition-all cursor-pointer">Click
+        to View</button>
+    </div>
+
+  </div>
+
+</div>
