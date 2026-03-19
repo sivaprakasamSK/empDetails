@@ -22,6 +22,8 @@ export class Spoc implements OnInit {
   currentPage = signal(1);
   pageSize = signal(12);
   selectedBranch = signal<BranchSchema | null>(null);
+  showSuggestions = signal(false);
+
 
 
   filteredBranches = computed(() => {
@@ -43,13 +45,35 @@ export class Spoc implements OnInit {
     return Math.ceil(this.filteredBranches().length / this.pageSize()) || 0;
   });
 
+  suggestions = computed(() => {
+    const term = this.searchText().toLowerCase().trim();
+    if (!term || term.length < 1) return [];
+  
+    return this.branches()
+      .filter(branch =>
+        branch.branchName.toLowerCase().includes(term) ||
+        branch.branchId.toLowerCase().includes(term)
+      )
+      .slice(0, 8); 
+  });
+
+  selectSuggestion(branch: BranchSchema) {
+    this.searchText.set(branch.branchName);
+    this.currentPage.set(1);
+    this.showSuggestions.set(false);
+  }
+
+  onBlur() {
+    setTimeout(() => this.showSuggestions.set(false), 150);
+  }
+
   ngOnInit() {
     this.branchService.getBranches().subscribe({
       next: (branches) => {
         this.branches.set(branches);
       },
       error: err => console.error(err)
-    });
+    });4200
   }
 
   onSearchChange(value: string) {
